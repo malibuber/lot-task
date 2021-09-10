@@ -1,13 +1,18 @@
 package main
 
-import "github.com/gin-gonic/gin"
+import (
+	"lot-task/routes"
+
+	"github.com/gin-gonic/gin"
+)
 
 func main() {
 	routers := gin.Default()
-	routers.GET("/", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"data": "test",
-		})
-	})
-	routers.Run()
+
+	v1 := routers.Group("hallo")
+	{
+		v1.GET("/", routes.GetHallo)
+		v1.GET("/", routes.PostHallo)
+	}
+	routers.Run(":3000")
 }
