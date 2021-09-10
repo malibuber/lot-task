@@ -15,10 +15,3 @@ func PostHallo(c *gin.Context) {
 		"message": "post",
 	})
 }
-
-func Test(c *gin.Context) {
-
-	c.JSON(200, gin.H{
-		"message": "post",
-	})
-}
