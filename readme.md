@@ -5,3 +5,7 @@
 make dev
 
 ```
+
+# To do
+
+error handling
