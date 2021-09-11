@@ -10,7 +10,7 @@ import (
 func main() {
 	routers := gin.Default()
 
-	v1 := routers.Group("hallo")
+	v1 := routers.Group("/hallo")
 	{
 		v1.GET("/", authMiddleWare(), routes.GetHallo)
 		v1.POST("/", authMiddleWare(), routes.PostHallo)
