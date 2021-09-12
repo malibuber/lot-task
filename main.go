@@ -15,6 +15,9 @@ func main() {
 		v1.GET("/", authMiddleWare(), routes.GetHallo)
 		v1.POST("/", authMiddleWare(), routes.PostHallo)
 	}
+	routers.NoRoute(func(c *gin.Context) {
+		c.JSON(404, gin.H{"error": "path fail"})
+	})
 	routers.Run(":3000")
 }
 
