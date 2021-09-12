@@ -1,0 +1,79 @@
+swagger: '2.0'
+info:
+  version: '1.0.0'
+  title: Lot-Internet
+schemes: [http]
+host: localhost:3000
+basePath: /
+consumes: [application/json]
+produces: [application/json]
+# note the new info here as securityDefinitions
+securityDefinitions:
+  Bearer:
+    type: apiKey
+    name: Authorization
+    in: header
+paths:
+  /hallo/*:
+    get:
+      description: 'Get All cart items'
+      tags: [hallo]
+      operationId: GetHallo
+      # note the "security" tag created on the restricted endpoint
+      security:
+        - Bearer: []
+      parameters:
+      - name: "name"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "company"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "task"
+        in: "query"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "All items in cart"
+          schema:
+            $ref: '#/definitions/Response'
+    post:
+      description: 'Get All cart items'
+      tags: [hallo]
+      operationId: PostHallo
+      # note the "security" tag created on the restricted endpoint
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Created user object"
+        required: true
+        schema:
+          $ref: "#/definitions/Request"
+      security:
+        - Bearer: []
+      responses:
+        200:
+          description: "All items in cart"
+          schema:
+            $ref: '#/definitions/Response'
+definitions:
+  Response:
+    type: object
+    properties:
+      result:
+        type: string
+      request:
+        $ref: '#/definitions/Request'
+  Request:
+    type: object
+    required: [name, company]
+    properties:
+      name:
+        type: string
+      company:
+        type: string
+      task:
+        type: string
