@@ -9,7 +9,7 @@ import (
 
 func main() {
 	routers := gin.Default()
-
+	/* 	routers.Use(check()) */
 	v1 := routers.Group("/hallo")
 	{
 		v1.GET("/", authMiddleWare(), routes.GetHallo)
@@ -17,6 +17,15 @@ func main() {
 	}
 	routers.Run(":3000")
 }
+
+/*
+func check() gin.HandlerFunc {
+	return func(c *gin.Context) {
+		if c.Request.URL.Path != "/hallo" {
+			c.AbortWithStatusJSON(500, gin.H{"message": "path fail"})
+		}
+	}
+} */
 
 func authMiddleWare() gin.HandlerFunc {
 	return func(c *gin.Context) {
