@@ -1,0 +1,242 @@
+{
+	"info": {
+		"_postman_id": "f591ae92-62ef-4536-98c4-8428e6ab65b8",
+		"name": "test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get_hallo",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "qwerty",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://<domain>/hallo?name=Vitali&company=LotInternet&task=make_coffee ",
+					"protocol": "https",
+					"host": [
+						"mehmetalibuber",
+						"me"
+					],
+					"path": [
+						"hallo"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Vitali"
+						},
+						{
+							"key": "company",
+							"value": "LotInternet"
+						},
+						{
+							"key": "task",
+							"value": "make_coffee "
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post_hallo",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "qwerty",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Vitali\",\n    \"company\": \"LotInternet\",\n    \"task\": \"make_cofee\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://<domain>/hallo",
+					"protocol": "https",
+					"host": [
+						"mehmetalibuber",
+						"me"
+					],
+					"path": [
+						"hallo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get_missing",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "qwerty",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://<domain>/hallo?company=LotInternet&task=make_coffee ",
+					"protocol": "https",
+					"host": [
+						"mehmetalibuber",
+						"me"
+					],
+					"path": [
+						"hallo"
+					],
+					"query": [
+						{
+							"key": "company",
+							"value": "LotInternet"
+						},
+						{
+							"key": "task",
+							"value": "make_coffee "
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post_missing",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "qwerty",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Vitali\",\n    \"task\": \"make_cofee\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://<domain>/hallo",
+					"protocol": "https",
+					"host": [
+						"mehmetalibuber",
+						"me"
+					],
+					"path": [
+						"hallo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "not_auth",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://<domain>/hallo?name=Vitali&company=LotInternet&task=make_coffee ",
+					"protocol": "https",
+					"host": [
+						"mehmetalibuber",
+						"me"
+					],
+					"path": [
+						"hallo"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Vitali"
+						},
+						{
+							"key": "company",
+							"value": "LotInternet"
+						},
+						{
+							"key": "task",
+							"value": "make_coffee "
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "path_fail",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://<domain>/halloaaa",
+					"protocol": "https",
+					"host": [
+						"mehmetalibuber",
+						"me"
+					],
+					"path": [
+						"halloaaa"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer"
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

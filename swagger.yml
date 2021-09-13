@@ -14,7 +14,7 @@ securityDefinitions:
     name: Authorization
     in: header
 paths:
-  /hallo/*:
+  /hallo:
     get:
       description: 'Get All cart items'
       tags: [hallo]
@@ -41,7 +41,6 @@ paths:
           schema:
             $ref: '#/definitions/Response'
     post:
-      description: 'Get All cart items'
       tags: [hallo]
       operationId: PostHallo
       # note the "security" tag created on the restricted endpoint
